@@ -1,0 +1,41 @@
+    // JavaScript code for form validation
+	// Prevent form from submitting
+
+      // Retrieve the input field value
+
+      // Regular expression pattern for alphanumeric input
+
+      // Check if the input value matches the pattern
+
+        // Valid input: display confirmation and submit the form
+
+        // Invalid input: display error message
+
+window.addEventListener('load', function() {
+const myForm=document.querySelector('#myForm');
+const inputField=document.querySelector('#inputField');
+const message=document.querySelector('#message');
+
+function validateInput(value) {
+  const regex=/^[a-zA-Z0-9]+$/;
+  return regex.test(value);
+}
+
+myForm.addEventListener('submit', function(e){
+  e.preventDefault();
+
+const value=inputField.value.trim();
+
+  if(validateInput(value)) {
+    message.textContent="valid input";
+    inputField.style.border='2px solid green';
+    alert("form submitted");
+  }else{
+    message.textContent='invalid input';
+    inputField.style.border='2px solid red';
+    e.preventDefault();
+  }
+});
+
+inputField.focus();
+});
